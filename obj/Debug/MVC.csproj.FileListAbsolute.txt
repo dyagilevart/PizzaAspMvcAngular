@@ -205,3 +205,9 @@ C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplica
 C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\bin\System.Net.Http.Formatting.dll
+C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\bin\System.Web.Http.dll
+C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\bin\System.Web.Http.WebHost.dll
+C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\bin\System.Net.Http.Formatting.xml
+C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\bin\System.Web.Http.xml
+C:\Users\DyagilevDenis\Documents\Visual Studio 2015\Projects\WebSite1\WebApplication1\bin\System.Web.Http.WebHost.xml

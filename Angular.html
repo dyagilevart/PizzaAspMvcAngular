@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html ng-app="AngularPizza">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="/Scripts/Index.js"></script>
+
+</head>
+<body ng-controller="PizzaController" class="container">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Пицца</th>
+                <th>Стоимость</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in orders">
+                <td>{{order.Date}}</td>
+                <td>{{order.Name_Customer}}</td>
+                <td>{{order.Surname_Customer}}</td>
+                <td>{{order.Name_Pizza}}</td>
+                <td>{{order.Cost}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

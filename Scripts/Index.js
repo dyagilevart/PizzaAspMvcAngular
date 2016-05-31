@@ -1,4 +1,4 @@
-﻿var testApp = angular.module('AngularPizza', []);
+﻿var testApp = angular.module('AngularPizza', ['angularUtils.directives.dirPagination']);
 
 testApp.controller('PizzaController', function ($scope, $http) {
     /*var orders = [
@@ -10,9 +10,20 @@ testApp.controller('PizzaController', function ($scope, $http) {
     */
     $scope.serverURL = "http://localhost:64540/";
     $scope.getData = function () {
+ 
         var url = "api/pizza";
         var urlParams = {};
                 
+        $scope.Delete = function (Id) {
+
+
+            $http.delete('/api/pizza' +'/'+ Id)
+            .success(function (data, status, headers) {
+                $scope.ServerResponse = data;
+            })
+            $scope.getData();
+        };
+
         $http.get($scope.serverURL + url, { params: urlParams }).success(
             function (data, status, headers, config) {
                 switch (status) {
@@ -39,7 +50,13 @@ testApp.controller('PizzaController', function ($scope, $http) {
                 
             }
         ).error(function () { });
-
+        $scope.predicate = 'Cost';
+        $scope.reverse = true;
+        $scope.order = function (predicate) {
+            $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+            $scope.predicate = predicate;
+           
+        };
 
     };
     

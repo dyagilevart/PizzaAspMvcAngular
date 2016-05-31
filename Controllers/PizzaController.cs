@@ -43,9 +43,32 @@ namespace WebApplication1.Controllers
         }
 
         // GET: api/Pizza/5
-        public string Get(int id)
+        public List<MainIndexModel> Get(int id)
         {
-            return "value";
+            using (DataClasses1DataContext c = new DataClasses1DataContext())
+            {
+                var m = new RootModel();
+                var main = (from mm in c.main select mm).ToList();
+
+                m.Main = (from t in main
+                          where t.Id == id
+                          select new MainIndexModel()
+                          {
+                              Surname_Customer = t.customer.surname,
+                              Name_Customer = t.customer.name,
+                              Id = t.Id,
+                              Name_Pizza = t.menu.name_pizza,
+                              Date = (DateTime)t.date,
+                              Cost = t.menu.cost,
+                              Id_customer = t.id_customer,
+                              Id_pizza = t.id_pizza
+
+                          })
+                     .ToList();
+                return m.Main;
+                //var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+                //return JsonConvert.SerializeObject(m, Formatting.Indented, settings);
+            }
         }
 
         // POST: api/Pizza
@@ -61,6 +84,14 @@ namespace WebApplication1.Controllers
         // DELETE: api/Pizza/5
         public void Delete(int id)
         {
+            using (var ctx = new DataClasses1DataContext())
+            {
+                var t = (from tt in ctx.main
+                         where tt.Id == id
+                         select tt).First();
+                ctx.main.DeleteOnSubmit(t);
+                ctx.SubmitChanges();
+            }
         }
     }
 }

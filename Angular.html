@@ -1,31 +1,53 @@
 ﻿<!DOCTYPE html>
 <html ng-app="AngularPizza">
 <head>
+    <link data-require="bootstrap-css@3.2.0" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="/Scripts/Index.js"></script>
-
+    <script src="/Scripts/dirPaginations.js"></script>
 </head>
 <body ng-controller="PizzaController" class="container">
 
-    <table class="table table-hover">
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Дата</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Пицца</th>
-                <th>Стоимость</th>
+                <th ng-click="order('Date')">Дата</th>
+                <th ng-click="order('Name_Customer')">Имя</th>
+                <th ng-click="order('Surname_Customer')">Фамилия</th>
+                <th ng-click="order('Name_Pizza')">Пицца</th>
+                <th ng-click="order('Cost')">Стоимость</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                
+                <th>
+                    <input placeholder="Поиск по имени" ng-model="search.Name_Customer" />
+                </th>
+                <th>
+                    <input placeholder="Поиск по фамилии" ng-model="search.Surname_Customer"  />
+                 </th>
+                <th><input placeholder="Поиск по пицце" ng-model="search.Name_Pizza" /></th>
+                <th><input placeholder="Поиск по цене" ng-model="search.Cost" /></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="order in orders">
+            <tr dir-paginate="order in orders | orderBy:predicate:reverse | filter:search | itemsPerPage:10 ">
                 <td>{{order.Date}}</td>
                 <td>{{order.Name_Customer}}</td>
                 <td>{{order.Surname_Customer}}</td>
                 <td>{{order.Name_Pizza}}</td>
                 <td>{{order.Cost}}</td>
+                <td><button ng-click="Delete(order.Id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
+   
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
 </body>
 </html>

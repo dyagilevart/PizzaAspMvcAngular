@@ -222,6 +222,7 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dirPaginations.js" />
     <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -233,7 +234,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\smart-table.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="stDateRange.html" />
+    <Content Include="stNumberRange.html" />
+    <Content Include="Table.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

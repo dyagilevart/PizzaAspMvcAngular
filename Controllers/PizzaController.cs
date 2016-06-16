@@ -72,13 +72,35 @@ namespace WebApplication1.Controllers
         }
 
         // POST: api/Pizza
-        public void Post([FromBody]string value)
+        public void Post(OrderModel value)
         {
+            using (DataClasses1DataContext ctx = new DataClasses1DataContext())
+            {
+                main t = new main()
+                {
+                    id_pizza =  Int32.Parse(value.Id_pizza),
+                    id_customer = value.Id_customer,
+                    date = DateTime.Now
+                };
+
+                ctx.main.InsertOnSubmit(t);
+                ctx.SubmitChanges();
+            }
         }
 
         // PUT: api/Pizza/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id,  OrderModel value)
         {
+            using (DataClasses1DataContext ctx = new DataClasses1DataContext())
+            {
+                main t = (from tt in ctx.main
+                          where tt.Id == id
+                          select tt).First();
+
+                t.id_pizza = Int32.Parse(value.Id_pizza);
+
+                ctx.SubmitChanges();
+            }
         }
 
         // DELETE: api/Pizza/5

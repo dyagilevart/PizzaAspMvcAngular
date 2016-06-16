@@ -1,0 +1,43 @@
+﻿@using System.Collections.Specialized
+@model WebApplication1.Models.RootModel
+@{
+    ViewBag.Title = "Пиццерия";
+}
+
+<div class="jumbotron">
+    <h1>Заказы</h1>
+</div>
+<div class="row" >
+    @Html.ActionLink("Новый пользователь", "AddCustomer")
+    @Html.ActionLink("Новый заказ", "AddOrder")
+    <div class="jumbotron">
+        <table class="table-striped table"  >
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Пицца</th>
+                    <th>Стоимость в рублях</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model.Main)
+            {
+                    <tr>
+                        <td>@t.Date</td>
+                        <td>@t.Name_Customer</td>
+                        <td>@t.Surname_Customer</td>
+                        <td>@t.Name_Pizza</td>
+                        <td>@t.Cost</td>
+                        <td><a href="/Home/Edit?id=@t.Id">Правка</a></td>
+                        <td><a href="/Home/Delete?id=@t.Id">Удалить</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+    

@@ -183,11 +183,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddOrder.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\Edit.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AddCustomer.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PizzaApiController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PizzaController.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -214,6 +215,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="POPUP.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="DataClasses1.dbml">

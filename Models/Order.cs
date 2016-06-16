@@ -7,7 +7,6 @@ namespace WebApplication1.Models
 {
     public class OrderModel
     {
-        public string Id { get; set; }
         public string Id_pizza { get; set; }
         public int Id_customer { get; set; }
     }

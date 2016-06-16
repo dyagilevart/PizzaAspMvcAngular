@@ -1,22 +1,71 @@
 ﻿<!DOCTYPE html>
 <html ng-app="AngularPizza">
 <head>
+    <style>
+           .container {
+  padding-top: 10px;
+}
+#popUpDialog-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+#popUpDialog {
+  position: fixed;
+  width: 250px;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: 5%;
+  padding: 15px;
+  border-radius: 5px;
+  background: white;
+}
+#popUpDialog .content {
+  margin-bottom: 15px;
+  text-align: center;
+}
+#popUpDialog .buttons-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.pagin {
+     text-align: center;
+     margin-left: 450px;
+     width: 100%;
+        }
+.sortorder:after {
+  content: '\25b2';  
+}
+.sortorder.reverse:after {
+  content: '\25bc';  
+}
+</style>
     <link data-require="bootstrap-css@3.2.0" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="/Scripts/Index.js"></script>
     <script src="/Scripts/dirPaginations.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body ng-controller="PizzaController" class="container">
-
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th ng-click="order('Date')">Дата</th>
-                <th ng-click="order('Name_Customer')">Имя</th>
-                <th ng-click="order('Surname_Customer')">Фамилия</th>
-                <th ng-click="order('Name_Pizza')">Пицца</th>
-                <th ng-click="order('Cost')">Стоимость</th>
+                <th ng-click="order('Date')">Дата
+                    <span class="sortorder" ng-show="predicate === 'Date'" ng-class="{reverse: reverse}"></span></th>
+                <th ng-click="order('Name_Customer')">Имя
+                    <span class="sortorder" ng-show="predicate === 'Name_Customer'" ng-class="{reverse: reverse}"></span></th>
+                <th ng-click="order('Surname_Customer')">Фамилия
+                    <span class="sortorder" ng-show="predicate === 'Surname_Customer'" ng-class="{reverse: reverse}"></span></th>
+                <th ng-click="order('Name_Pizza')">Пицца
+                    <span class="sortorder" ng-show="predicate === 'Name_Pizza'" ng-class="{reverse: reverse}"></span></th>
+                <th ng-click="order('Cost')">Стоимость
+                    <span class="sortorder" ng-show="predicate === 'Cost'" ng-class="{reverse: reverse}"></span></th>
                 <th></th>
             </tr>
             <tr>
@@ -30,24 +79,33 @@
                  </th>
                 <th><input placeholder="Поиск по пицце" ng-model="search.Name_Pizza" /></th>
                 <th><input placeholder="Поиск по цене" ng-model="search.Cost" /></th>
-                <th></th>
+                <th><button class="btn btn-primary" ng-click="Dialog()">Добавить заказ</button></th>
             </tr>
         </thead>
         <tbody>
-            <tr dir-paginate="order in orders | orderBy:predicate:reverse | filter:search | itemsPerPage:10 ">
+            <tr dir-paginate="order in orders | orderBy:predicate:reverse | filter:search | itemsPerPage:8">
                 <td>{{order.Date}}</td>
                 <td>{{order.Name_Customer}}</td>
                 <td>{{order.Surname_Customer}}</td>
                 <td>{{order.Name_Pizza}}</td>
                 <td>{{order.Cost}}</td>
-                <td><button ng-click="Delete(order.Id)">Delete</button></td>
+                <td><button class="btn btn-danger" ng-click="Delete(order.Id)">Удалить</button>
+                    <button class="btn btn-primary" ng-click="Dialog2(order.Id, order.Name_Customer, order.Surname_Customer, order.Id_pizza)">Редактировать</button></td>
             </tr>
         </tbody>
     </table>
-   
-    <dir-pagination-controls max-size="5"
+
+
+    <dir-pagination-controls class="pagin"
+                             max-size="3"
                              direction-links="true"
                              boundary-links="true">
     </dir-pagination-controls>
+    <div class="container">
+        
+        <pop-up-dialog></pop-up-dialog>
+        <pop-up-dialog-edit></pop-up-dialog-edit>
+    </div>
+  
 </body>
 </html>

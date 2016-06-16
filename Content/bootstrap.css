@@ -4693,7 +4693,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   z-index: 2;
   color: #ffffff;
   cursor: default;
-  background-color: #428bca;
+  background-color: #428baa;
   border-color: #428bca;
 }
 
@@ -4701,7 +4701,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: #999999;
+  color: #999909;
   cursor: not-allowed;
   background-color: #ffffff;
   border-color: #dddddd;

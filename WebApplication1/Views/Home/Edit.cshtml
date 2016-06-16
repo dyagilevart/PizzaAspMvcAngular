@@ -1,0 +1,16 @@
+﻿@model WebApplication1.Models.MainIndexModel
+@{
+    ViewBag.Title = "Редактировать";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@using (Html.BeginForm())
+{
+    @Html.Partial("OrderControl", Model)
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-default" Name="Submit" />
+            <input type="submit" value="Отмена" class="btn btn-default" Name="Cancel" />
+        </div>
+    </div>
+}

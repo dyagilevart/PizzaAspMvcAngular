@@ -1,0 +1,13 @@
+﻿@model WebApplication1.Models.MainIndexModel
+<div class="form-group">
+    @Html.LabelFor(m => m.Name_Customer, new { @class = "col-md-2 control-label" })
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.Id_customer, (List<SelectListItem>)ViewBag.customer)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Id_pizza, new { @class = "col-md-2 control-label" })
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.Id_pizza, (List<SelectListItem>)ViewBag.menu)
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿<div id="popUpDialog-bg" ng-show="showPopUpDialog">
+    
+    <div id="popUpDialog">
+        
+        <div class="content">{{ popUpDialogContent }}</div> 
+        <div class="clearfix buttons-container">
+            
+            <div>
+                
+                <select ng-model="myOption" ng-change="selectAction()" id="Id_pizza">
+                    
+                    <option value="1">Европейская</option>
+                    <option valur="2">Стрета</option>
+                    <option value="3">Пранзо</option>
+                </select>
+            </div>
+            <div>
+                
+                <select id="Id_customer">
+                    
+                    <option value="1">Денис Дягилев</option>
+                    <option value="2">Наталья	Польшакова</option>
+                    <option value="3">Антон Белоусов</option>
+                    <option value="4">1	1
+                    <option>
+                    <option value="5">1	1
+                    <option>
+                    <option value="6">1	1
+                    <option>
+                    <option value="7">1	1
+                    <option>
+                    <option value="8">12	12
+                    <option>
+                    <option value="9">123	123
+                    <option>
+                    <option value="10">Иван	Иванов
+                    <option>
+                    <option value="11">вйцв	Фыва
+                    <option>
+                </select>
+            </div>
+            <div class="pull-left">
+                
+                <button class="btn btn-primary" ng-click="Save(Id_pizza.value, Id_customer.value)">Да</button> 
+            </div> 
+            <div class="pull-right">
+                
+                <button class="btn btn-warning" ng-click="closePopUpDialog()">Нет</button> 
+            </div> 
+        </div> 
+    </div> 
+</div>
+
